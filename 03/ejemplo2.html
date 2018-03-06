@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+</head>
+<body>
+    <div id="aplicacion">
+        <p>Ingrese un valor entre 1 y 100: <input type="number" v-model="numero" min="1" max="100"></p>
+        <p v-if="numero <= 9">Tiene un dígito</p>
+        <p v-else-if="numero <= 99">Tiene dos dígitos</p>
+        <p v-else>Tiene tres dígitos</p>
+
+        <template v-if="numero==50">
+            <h1>Número 50</h1>
+            <p>Estamos en la mitad.</p>
+        </template>
+
+        <div v-show="numero==50">
+            <h1>Número 50</h1>
+            <p>Estamos en la mitad.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el:'#aplicacion',
+            data:{
+                numero:1
+            }
+        });
+    </script>
+</body>
+</html>
