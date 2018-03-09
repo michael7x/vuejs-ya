@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+</head>
+<body>
+    <div id="aplicacion">
+        <ul>
+            <template v-for="persona in personas">
+                <li>
+                    {{persona.nombre}} 
+                    <span v-if="persona.edad >= 18">(Mayor)</span>
+                    <span v-else>(Menor)</span>
+                </li>
+            </template>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el:'#aplicacion',
+            data:{
+                personas:[
+                    { nombre: 'José', edad: 12},
+                    { nombre: 'Ana', edad: 43},
+                    { nombre: 'Pedro', edad: 4},
+                    { nombre: 'María', edad: 12}
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
