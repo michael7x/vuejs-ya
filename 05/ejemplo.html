@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+</head>
+<body>
+    <div id="aplicacion">
+        <table border="1">
+            <tr>
+                <td>Código</td>
+                <td>Descripción</td>
+                <td>Precio</td>
+            </tr>
+            <template v-for="articulo in articulos">
+                <tr>
+                    <td>{{articulo.codigo}}</td>
+                    <td>{{articulo.descripcion}}</td>
+                    <td>{{articulo.precio}}</td>
+                </tr>
+            </template>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el:'#aplicacion',
+            data:{
+                articulos:[
+                    { codigo: 1, descripcion: 'papas', precio: 12.50},
+                    { codigo: 2, descripcion: 'naranjas', precio: 21},
+                    { codigo: 3, descripcion: 'peras', precio: 18.20}
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
