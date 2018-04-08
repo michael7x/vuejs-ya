@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Js</title>
+</head>
+<body>
+    
+    <div id="aplicacion">
+        <p>Ingrese primer valor:
+            <input type="number" v-model="valor1">
+        </p>
+        <p>Ingrese segundo valor:
+            <input type="number" v-model="valor2">
+        </p>
+        <p>
+            <button v-on:click="sumarValores">Sumar</button>
+        </p>
+        <p>El resultado de la suma es igual a {{suma}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el:"#aplicacion",
+            data:{
+                valor1: 0,
+                valor2: 0,
+                suma: ''
+            },
+            methods:{
+                sumarValores: function(){
+                    this.suma = parseInt(this.valor1) + parseInt(this.valor2);
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
