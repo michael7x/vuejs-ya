@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+</head>
+<body>
+
+    <div id="aplicacion">
+        <h1>Listado de actividades</h1>
+        <ol>
+            <li v-for="actividad in actividades">
+                {{actividad}}
+            </li>
+        </ol>
+        Nueva actividad: <input type="text" v-on:keyup.enter="actualizarLista" v-model="actividad" placeholder="Enter para confirmar">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el:"#aplicacion",
+            data:{
+                actividad:'',
+                actividades:[]
+            },
+            methods:{
+                actualizarLista: function(){
+                    this.actividades.push(this.actividad);
+                    this.actividad = '';
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
