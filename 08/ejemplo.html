@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+</head>
+<body>
+
+    <div id="aplicacion">
+        <table border="1">
+            <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+            </tr>
+            <template v-for="articulo in articulos">
+                <tr>
+                    <td>{{articulo.codigo}}</td>
+                    <td>{{articulo.descripcion}}</td>
+                    <td>{{articulo.precio}}</td>
+                </tr>
+            </template>
+        </table>
+        <form v-on:submit.prevent="agregarArticulo">
+            <p>
+                Ingrese código: <input type="number" v-model="codigo">
+            </p>
+            <p>
+                Ingrese descripción: <input type="text" v-model="descripcion">
+            </p>
+            <p>
+                Ingrese precio: <input type="text" v-model="precio">
+            </p>
+            <p>
+                <input type="submit" value="Agregar">
+            </p>
+        </form>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: "#aplicacion",
+            data:{
+                codigo:'',
+                descripcion:'',
+                precio:'',
+                articulos: [{
+                    codigo:1,
+                    descripcion:'papas',
+                    precio:34.12
+                }]
+            },
+            methods:{
+                agregarArticulo: function(){
+                    this.articulos.push({
+                        codigo: this.codigo,
+                        descripcion: this.descripcion,
+                        precio:this.precio
+                    });
+                    
+                    this.codigo = '';
+                    this.descripcion = '';
+                    this.precio = '';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
