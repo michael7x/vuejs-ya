@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="aplicacion">
+        <p>
+            <input type="radio" value="Sin estudios" v-model="estudios" id="sinestudios">
+            <label for="sinestudios">Sin estudios</label>
+        </p>
+        <p>
+            <input type="radio" value="Primarios" v-model="estudios" id="primarios">
+            <label for="primarios">Primarios</label>
+        </p>
+        <p>
+            <input type="radio" value="Secundarios" v-model="estudios" id="secundarios">
+            <label for="secundarios">Secundarios</label>
+        </p>
+        <p>
+            <input type="radio" value="Universitarios" v-model="estudios" id="universitarios">
+            <label for="universitarios">Universitarios</label>
+        </p>
+        <p>Sus estudios son: {{estudios}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                estudios: 'Sin estudios'
+            }
+        });
+    </script>
+</body>
+</html>
