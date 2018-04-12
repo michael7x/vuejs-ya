@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+</head>
+<body>
+
+    <div id="aplicacion">
+        <p><input type="checkbox" v-model="dias" value="Lunes">Lunes</p>
+        <p><input type="checkbox" v-model="dias" value="Martes">Martes</p>
+        <p><input type="checkbox" v-model="dias" value="Miércoles">Miércoles</p>
+        <p><input type="checkbox" v-model="dias" value="Jueves">Jueves</p>
+        <p><input type="checkbox" v-model="dias" value="Viernes">Viernes</p>
+        <p><input type="checkbox" v-model="dias" value="Sábado">Sábado</p>
+        <p><input type="checkbox" v-model="dias" value="Domingo">Domingo</p>
+        <p v-if="dias.length < 5" style="color: red">Debe seleccionar por lo menos 5 días</p>
+        <h3>Días seleccionados</h3>
+        <ul>
+            <li v-for="dia in dias">{{dia}}</li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                dias: []
+            }
+        });
+    </script>
+    
+</body>
+</html>
