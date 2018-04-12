@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Vue JS   </title>
+</head>
+<body>
+
+    <div id="aplicacion">
+        <p><input type="checkbox" v-model="lenguajes" value="C++">C++</p>
+        <p><input type="checkbox" v-model="lenguajes" value="C">C</p>
+        <p><input type="checkbox" v-model="lenguajes" value="C#">C#</p>
+        <p><input type="checkbox" v-model="lenguajes" value="Java">Java</p>
+        <p><input type="checkbox" v-model="lenguajes" value="Kotlin">Kotlin</p>
+        <p><input type="checkbox" v-model="lenguajes" value="PHP">PHP</p>
+        <p><input type="checkbox" v-model="lenguajes" value="Python">Python</p>
+        <h3>Lenguajes seleccionados</h3>
+        <ul>
+            <li v-for="lenguaje in lenguajes">{{lenguaje}}</li>
+        </ul>
+        <p>Cantidad de lenguajes que conoce: {{lenguajes.length}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el : '#aplicacion',
+            data : {
+                lenguajes: []
+            }
+        });
+    </script>
+    
+</body>
+</html>
