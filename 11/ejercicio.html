@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+</head>
+<body>
+
+    <div id="aplicacion">
+        <p>
+            <select v-model="idioma">
+                <option disabled value="">Seleccione un idioma</option>
+                <option value="Bienvenido">Castellano</option>
+                <option value="You are welcome">Ingles</option>
+                <option value="seja bem vindo">Portugués</option>
+                <option value="willkommen">Alemán</option>
+                <option value="benvingut">Catalán</option>
+                <option value="ongietorri">Euskera</option>
+                <option value="bienvenue">Frances</option>
+            </select>
+        </p>
+        <p style="font-size: 2rem">{{idioma}}</p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                idioma: ''
+            }
+        });
+    </script>
+
+</body>
+</html>
