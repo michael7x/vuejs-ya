@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+</head>
+<body>
+
+    <div id="aplicacion">
+        <p>Ingrese su nombre: <input type="text" v-model="nombre"></p>
+        <p>Ingrese su apellido: <input type="text" v-model="apellido"></p>
+        <p>Nombre completo: {{nombreCompleto}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                nombre: '',
+                apellido: ''
+            },
+            computed: {
+                nombreCompleto: function(){
+                    return this.nombre + ' ' + this.apellido;
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
