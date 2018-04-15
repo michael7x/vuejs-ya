@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+</head>
+<body>
+
+    <div id="aplicacion">
+        <p>Ingrese un nombre sin espacios en blanco
+            <input type="text" v-model="nombre" v-bind:style="{'color':colorNombre}">
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                nombre: ''
+            },
+            computed: {
+                colorNombre: function(){
+                    if(this.nombre.includes(' '))
+                        return '#f00';
+                    else
+                        return '#000';
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
