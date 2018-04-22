@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+</head>
+<body>
+
+    <div id="aplicacion">
+        <button v-on:click="recuperarArticulos()">Recuperar artículos</button>
+        <table border="1">
+            <tr>
+                <td>Código</td>
+                <td>Descripción</td>
+                <td>Precio</td>
+            </tr>
+            <tr v-for="articulo in articulos">
+                <td>{{articulo.codigo}}</td>
+                <td>{{articulo.descripcion}}</td>
+                <td>{{articulo.precio}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+    <script>
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                articulos: []
+            },
+            methods: {
+                recuperarArticulos: function(){
+                    this.$http.get('http://scratchya.com.ar/vue/datos.php').then(function (respuesta){
+                        this.articulos = respuesta.body;
+                    });
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
